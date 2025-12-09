@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasanth V - Professional Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vasanth V - Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <style>
         * {
             margin: 0;
@@ -11,940 +15,1221 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-dark: #050816;
+            --bg-card: rgba(10, 15, 30, 0.9);
+            --accent: #38bdf8;
+            --accent-2: #a855f7;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-subtle: rgba(148, 163, 184, 0.25);
+            --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+            --radius-xl: 20px;
+            --radius-2xl: 26px;
+            --nav-height: 70px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            color: #ffffff;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-main);
+            background: #020617;
+            min-height: 100vh;
             overflow-x: hidden;
-            background: #000000;
-            line-height: 1.6;
+            position: relative;
         }
 
-        /* Animated Background with Gradient Waves */
-        .animated-bg {
+        /* Animated Tech Gradient Background */
+        body::before {
+            content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -3;
-            background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
-            background-size: 400% 400%;
-            animation: gradientWave 15s ease infinite;
-        }
-
-        @keyframes gradientWave {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Tech Grid Pattern */
-        .tech-grid {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridScroll 30s linear infinite;
-        }
-
-        @keyframes gridScroll {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        /* Circuit Lines */
-        .circuit-lines {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-        }
-
-        .circuit-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
-            animation: circuitFlow 8s linear infinite;
-        }
-
-        .circuit-line:nth-child(1) {
-            width: 200px;
-            height: 2px;
-            top: 20%;
-            left: -200px;
-            animation-delay: 0s;
-        }
-
-        .circuit-line:nth-child(2) {
-            width: 150px;
-            height: 2px;
-            top: 40%;
-            left: -150px;
-            animation-delay: 2s;
-        }
-
-        .circuit-line:nth-child(3) {
-            width: 180px;
-            height: 2px;
-            top: 60%;
-            left: -180px;
-            animation-delay: 4s;
-        }
-
-        .circuit-line:nth-child(4) {
-            width: 160px;
-            height: 2px;
-            top: 80%;
-            left: -160px;
-            animation-delay: 6s;
-        }
-
-        @keyframes circuitFlow {
-            0% { left: -200px; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { left: 100%; opacity: 0; }
-        }
-
-        /* Binary Rain Effect */
-        .binary-rain {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-        }
-
-        .binary-col {
-            position: absolute;
-            top: -100%;
-            color: rgba(99, 102, 241, 0.3);
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 14px;
-            white-space: nowrap;
-            animation: binaryFall 10s linear infinite;
-        }
-
-        .binary-col:nth-child(1) { left: 5%; animation-delay: 0s; }
-        .binary-col:nth-child(2) { left: 15%; animation-delay: 2s; }
-        .binary-col:nth-child(3) { left: 25%; animation-delay: 4s; }
-        .binary-col:nth-child(4) { left: 35%; animation-delay: 1s; }
-        .binary-col:nth-child(5) { left: 45%; animation-delay: 3s; }
-        .binary-col:nth-child(6) { left: 55%; animation-delay: 5s; }
-        .binary-col:nth-child(7) { left: 65%; animation-delay: 2.5s; }
-        .binary-col:nth-child(8) { left: 75%; animation-delay: 4.5s; }
-        .binary-col:nth-child(9) { left: 85%; animation-delay: 1.5s; }
-        .binary-col:nth-child(10) { left: 95%; animation-delay: 3.5s; }
-
-        @keyframes binaryFall {
-            0% { top: -100%; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-
-        /* Floating Orbs */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .orb1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #6366f1, transparent);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .orb2 {
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, #ec4899, transparent);
-            top: 60%;
-            right: 10%;
-            animation-delay: 3s;
-        }
-
-        .orb3 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, #14b8a6, transparent);
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            animation-delay: 6s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -30px) scale(1.1); }
-            50% { transform: translate(-20px, 20px) scale(0.9); }
-            75% { transform: translate(40px, 10px) scale(1.05); }
-        }
-
-        /* Particle Effect */
-        .particles {
-            position: fixed;
-            inset: 0;
+            inset: -200px;
+            background: radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.18), transparent 55%),
+                        radial-gradient(circle at 90% 10%, rgba(168, 85, 247, 0.18), transparent 55%),
+                        radial-gradient(circle at 0% 80%, rgba(52, 211, 153, 0.16), transparent 55%),
+                        linear-gradient(120deg, #020617, #020617 40%, #050816 60%, #020617 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease-in-out infinite;
             z-index: -2;
         }
 
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: rise 15s linear infinite;
-        }
-
-        @keyframes rise {
-            0% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% {
-                transform: translateY(-100vh) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        /* Particles positions */
-        .particle:nth-child(1) { left: 5%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 15%; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 25%; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 35%; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 45%; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 55%; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 65%; animation-delay: 2.5s; }
-        .particle:nth-child(8) { left: 75%; animation-delay: 4.5s; }
-        .particle:nth-child(9) { left: 85%; animation-delay: 1.5s; }
-        .particle:nth-child(10) { left: 95%; animation-delay: 3.5s; }
-
-        /* Header Navigation */
-        header {
+        /* Subtle animated grid overlay for "tech" feel */
+        body::after {
+            content: "";
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 5%;
-            z-index: 1000;
-            transition: all 0.3s;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+            background-size: 70px 70px;
+            mix-blend-mode: soft-light;
+            opacity: 0.4;
+            transform: translate3d(0, 0, 0);
+            animation: gridDrift 40s linear infinite;
+            z-index: -1;
         }
 
-        header.scrolled {
-            padding: 1rem 5%;
-            background: rgba(0, 0, 0, 0.9);
+        @keyframes gradientShift {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
         }
 
-        nav {
-            max-width: 1400px;
+        @keyframes gridDrift {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(-40px, -40px, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+        /* Layout */
+        .page {
+            max-width: 1120px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 0 1.25rem 4rem;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6366f1, #ec4899, #14b8a6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-weight: 500;
+        /* Glassy Panel Wrapper */
+        .glass-panel {
+            margin-top: calc(var(--nav-height) + 1.5rem);
+            border-radius: 28px;
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.86));
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow:
+                0 0 0 1px rgba(15, 23, 42, 0.9),
+                0 24px 80px rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(24px);
+            padding: 1.75rem 1.75rem 2.25rem;
             position: relative;
-            transition: color 0.3s;
+            overflow: hidden;
         }
 
-        .nav-menu a::before {
-            content: '';
+        .glass-panel::before {
+            content: "";
             position: absolute;
-            bottom: -5px;
+            inset: -1px;
+            background: conic-gradient(
+                from 220deg,
+                rgba(56, 189, 248, 0.18),
+                rgba(168, 85, 247, 0.2),
+                rgba(52, 211, 153, 0.18),
+                rgba(56, 189, 248, 0.18)
+            );
+            opacity: 0.3;
+            filter: blur(32px);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.2));
+            border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.25rem;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .nav-logo-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 20% 0%, #38bdf8, #0f172a);
+            display: grid;
+            place-items: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .nav-tag {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            font-size: 0.85rem;
+        }
+
+        .nav-link {
+            position: relative;
+            cursor: pointer;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
             left: 0;
+            bottom: -4px;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #6366f1, #ec4899);
-            transition: width 0.3s;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            transition: width 0.2s ease;
         }
 
-        .nav-menu a:hover {
-            color: #ffffff;
+        .nav-link:hover {
+            color: var(--text-main);
         }
 
-        .nav-menu a:hover::before {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
+        .nav-link.active {
+            color: #e5e7eb;
+        }
+
+        .nav-cta {
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            font-size: 0.78rem;
+            text-decoration: none;
+            color: var(--text-main);
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 5% 5rem;
+            gap: 0.35rem;
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.3), transparent 55%);
+            transition: 0.2s ease;
         }
 
-        .hero-content {
-            max-width: 900px;
+        .nav-cta span {
+            font-size: 1rem;
         }
 
-        .hero-title {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff, #a78bfa, #ec4899);
+        .nav-cta:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+            gap: 2.5rem;
+            align-items: center;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero-heading {
+            font-size: 2.4rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-name-highlight {
+            background: linear-gradient(120deg, #38bdf8, #a855f7, #22c55e);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease;
+            color: transparent;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
+            font-size: 0.98rem;
+            color: #cbd5f5;
+            max-width: 30rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
         }
 
-        .hero-description {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .cta-buttons {
+        .hero-tags {
             display: flex;
-            gap: 1.5rem;
-            justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s backwards;
+            gap: 0.6rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .chip {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.21), rgba(15, 23, 42, 0.7));
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            white-space: nowrap;
+        }
+
+        .chip-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: radial-gradient(circle, #4ade80, #22c55e);
+        }
+
+        .chip-soft {
+            background: radial-gradient(circle at 100% 0, rgba(168, 85, 247, 0.25), rgba(15, 23, 42, 0.7));
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.15rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #6366f1, #ec4899);
-            color: #ffffff;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ec4899, #6366f1);
-            transition: left 0.3s;
-            z-index: -1;
-        }
-
-        .btn-primary:hover::before {
-            left: 0;
+            background: linear-gradient(120deg, #38bdf8, #a855f7);
+            box-shadow: 0 18px 40px rgba(37, 99, 235, 0.5);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 18px 48px rgba(37, 99, 235, 0.7);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+        .btn-ghost {
+            background: linear-gradient(120deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+            border-color: rgba(148, 163, 184, 0.8);
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px);
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .btn span.icon {
+            font-size: 1.05rem;
         }
 
-        /* Section Styling */
-        section {
-            padding: 6rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+        /* Hero Right - Info Card */
+        .hero-card {
+            position: relative;
+            border-radius: var(--radius-2xl);
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.15), transparent 55%),
+                        radial-gradient(circle at 100% 0, rgba(168, 85, 247, 0.15), transparent 55%),
+                        rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            padding: 1.35rem 1.3rem;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: conic-gradient(
+                from 120deg,
+                rgba(56, 189, 248, 0.3),
+                rgba(168, 85, 247, 0.3),
+                rgba(52, 211, 153, 0.3),
+                rgba(56, 189, 248, 0.3)
+            );
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            mix-blend-mode: screen;
+        }
+
+        .hero-card:hover::before {
+            opacity: 0.45;
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.1rem;
+        }
+
+        .hero-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            border: 2px solid rgba(148, 163, 184, 0.55);
+            background: radial-gradient(circle at 20% 0%, #38bdf8, #0b1120);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .hero-meta {
+            flex: 1;
+            margin-left: 0.8rem;
+        }
+
+        .hero-meta-name {
+            font-size: 0.98rem;
+            font-weight: 600;
+        }
+
+        .hero-meta-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hero-meta-location {
+            font-size: 0.78rem;
+            color: #cbd5f5;
+            margin-top: 0.15rem;
+        }
+
+        .hero-status-pill {
+            font-size: 0.72rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(52, 211, 153, 0.7);
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.16), rgba(15, 23, 42, 0.88));
+            color: #bbf7d0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            white-space: nowrap;
+        }
+
+        .hero-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: radial-gradient(circle, #bbf7d0, #22c55e);
+        }
+
+        .hero-card-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+            font-size: 0.78rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            text-decoration: none;
+            color: #e5e7eb;
+            word-break: break-all;
+        }
+
+        .hero-link:hover {
+            text-decoration: underline;
+        }
+
+        .hero-card-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.7), transparent);
+            margin-bottom: 0.9rem;
+        }
+
+        .hero-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.74rem;
+        }
+
+        .hero-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .badge {
+            padding: 0.18rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.55);
+            background: rgba(15, 23, 42, 0.9);
+            font-size: 0.7rem;
+            color: #e5e7eb;
+        }
+
+        /* Section */
+        .section {
+            margin-top: 1.4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 0.9rem;
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            text-align: center;
-            margin-bottom: 4rem;
-            background: linear-gradient(135deg, #6366f1, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #e5e7eb;
         }
 
-        /* Card Grid */
-        .card-grid {
+        .section-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .section-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
         }
 
+        /* Cards */
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            border-radius: var(--radius-xl);
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.13), transparent 55%),
+                        rgba(15, 23, 42, 0.96);
+            border: 1px solid var(--border-subtle);
+            padding: 0.9rem 0.95rem;
+            box-shadow: 0 14px 38px rgba(15, 23, 42, 0.9);
             overflow: hidden;
-            cursor: pointer;
+            transform: translateY(0) translateZ(0);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
         }
 
         .card::before {
-            content: '';
+            content: "";
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #6366f1, #ec4899, #14b8a6);
-            border-radius: 24px;
+            inset: -1px;
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2), transparent 60%),
+                        radial-gradient(circle at 100% 0, rgba(168, 85, 247, 0.2), transparent 60%);
             opacity: 0;
-            transition: opacity 0.5s;
-            z-index: -1;
+            transition: opacity 0.3s ease;
+            mix-blend-mode: screen;
         }
 
-        .card::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border-radius: 22px;
-            z-index: -1;
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(248, 250, 252, 0.8);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), transparent 60%),
+                        rgba(15, 23, 42, 0.98);
         }
 
         .card:hover::before {
             opacity: 1;
-            animation: borderGlow 2s linear infinite;
         }
 
-        @keyframes borderGlow {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        .card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3),
-                        0 0 80px rgba(236, 72, 153, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #6366f1, #ec4899);
-            border-radius: 16px;
+        .card-header-line {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.4s;
+            margin-bottom: 0.4rem;
         }
 
         .card-title {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            transition: all 0.4s;
-        }
-
-        .card-subtitle {
-            color: #ec4899;
+            font-size: 0.92rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
         }
 
-        .card-text {
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.8;
-            margin-bottom: 0.8rem;
-            transition: all 0.4s;
+        .card-pill {
+            font-size: 0.65rem;
+            padding: 0.18rem 0.55rem;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            color: #e5e7eb;
         }
 
-        .card-date {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
-            font-style: italic;
+        .card-meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
         }
 
-        .about-card {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
-            max-width: 900px;
-            margin: 0 auto;
+        .card-meta span {
+            opacity: 0.9;
         }
 
-        /* Skills Section */
-        .skills-grid {
+        .card-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 3rem;
+            gap: 0.3rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .card-tag {
+            font-size: 0.68rem;
+            padding: 0.16rem 0.5rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: rgba(15, 23, 42, 0.95);
+            color: #e5e7eb;
+        }
+
+        .card-body {
+            font-size: 0.78rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .card-body ul {
+            margin-left: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .card-body li {
+            margin-bottom: 0.18rem;
+        }
+
+        /* Skills Layout */
+        .skills-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+            gap: 1rem;
+        }
+
+        .skill-group-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 0.45rem;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
         }
 
         .skill-badge {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-weight: 600;
-            transition: all 0.3s;
-            cursor: pointer;
+            font-size: 0.75rem;
+            padding: 0.32rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.24), rgba(15, 23, 42, 0.95));
+        }
+
+        .skill-badge.soft {
+            background: radial-gradient(circle at 100% 0, rgba(168, 85, 247, 0.24), rgba(15, 23, 42, 0.95));
+        }
+
+        /* Timeline Style */
+        .timeline {
+            border-left: 1px solid rgba(148, 163, 184, 0.7);
+            padding-left: 0.8rem;
+            margin-left: 0.4rem;
+        }
+
+        .timeline-item {
             position: relative;
-            overflow: hidden;
+            margin-bottom: 0.8rem;
         }
 
-        .skill-badge::before {
-            content: '';
+        .timeline-item::before {
+            content: "";
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s, height 0.5s;
+            left: -0.93rem;
+            top: 0.15rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            border: 2px solid rgba(56, 189, 248, 0.85);
+            background: #020617;
         }
 
-        .skill-badge:hover::before {
-            width: 300px;
-            height: 300px;
+        .timeline-title {
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
-        .skill-badge:hover {
-            transform: translateY(-5px) scale(1.1);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(236, 72, 153, 0.4));
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-            border-color: rgba(255, 255, 255, 0.4);
+        .timeline-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
 
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+        /* Contact Footer */
+        .contact-box {
+            margin-top: 1.2rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            padding: 0.75rem 0.9rem;
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.14), transparent 55%),
+                        rgba(15, 23, 42, 0.98);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
         }
 
-        .contact-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #6366f1, #ec4899, #14b8a6, #6366f1);
-            border-radius: 20px;
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: -1;
-            background-size: 300% 300%;
-            animation: borderFlow 3s ease infinite;
-        }
-
-        .contact-card::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
-            border-radius: 18px;
-            z-index: -1;
-        }
-
-        @keyframes borderFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .contact-card:hover::before {
-            opacity: 1;
-        }
-
-        .contact-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-10px) scale(1.05);
-            border-color: transparent;
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3),
-                        0 0 60px rgba(236, 72, 153, 0.2);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.4s;
-        }
-
-        .contact-card:hover .contact-icon {
-            transform: scale(1.3) rotateY(360deg);
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
         }
 
         .contact-label {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.7rem;
+            color: var(--text-muted);
         }
 
-        .contact-value {
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .contact-value a {
-            color: #ffffff;
+        .contact-link {
             text-decoration: none;
-            transition: all 0.3s;
+            color: #e5e7eb;
         }
 
-        .contact-value a:hover {
-            color: #ec4899;
-            text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+        .contact-link:hover {
+            text-decoration: underline;
         }
 
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            text-align: center;
-            padding: 3rem 5%;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .contact-note {
+            color: var(--text-muted);
+            font-size: 0.78rem;
         }
 
-        footer p {
-            color: rgba(255, 255, 255, 0.5);
+        /* Scroll reveal hidden initial */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
+        /* Mobile */
+        .nav-menu-toggle {
+            display: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
             .hero {
-                padding: 6rem 5% 3rem;
+                grid-template-columns: minmax(0, 1fr);
             }
 
-            .card-grid {
-                grid-template-columns: 1fr;
+            .hero-card {
+                order: -1;
             }
 
-            section {
-                padding: 4rem 5%;
+            .section-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .skills-layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .glass-panel {
+                padding: 1.3rem 1.1rem 1.8rem;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-inner {
+                padding-inline: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                inset: var(--nav-height) 0 auto 0;
+                background: rgba(2, 6, 23, 0.97);
+                padding: 0.75rem 1.25rem 1rem;
+                border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+                flex-direction: column;
+                align-items: flex-start;
+                transform: translateY(-120%);
+                opacity: 0;
+                pointer-events: none;
+                transition: transform 0.22s ease, opacity 0.22s ease;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-menu-toggle {
+                display: block;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero-heading {
+                font-size: 1.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-card-row {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .contact-box {
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="tech-grid"></div>
-        <div class="circuit-lines">
-            <div class="circuit-line"></div>
-            <div class="circuit-line"></div>
-            <div class="circuit-line"></div>
-            <div class="circuit-line"></div>
-        </div>
-        <div class="binary-rain">
-            <div class="binary-col">01001010<br>10110101<br>01010101<br>11001100<br>10101010<br>01110011</div>
-            <div class="binary-col">11010110<br>00101011<br>11001001<br>01010110<br>10011010<br>01100011</div>
-            <div class="binary-col">10101100<br>01011010<br>11100110<br>00101101<br>11010101<br>01001110</div>
-            <div class="binary-col">01110010<br>10011011<br>01101100<br>11010011<br>00111001<br>10101100</div>
-            <div class="binary-col">11001010<br>01010111<br>10110100<br>01101011<br>11010010<br>00101110</div>
-            <div class="binary-col">00110101<br>11101001<br>01011100<br>10010110<br>01101010<br>11001101</div>
-            <div class="binary-col">10100110<br>01110101<br>11010100<br>00101100<br>10011101<br>01010011</div>
-            <div class="binary-col">01101011<br>10010100<br>11000110<br>01011011<br>10101001<br>00110160</div>
-            <div class="binary-col">11010101<br>00101110<br>10110011<br>01100101<br>11001010<br>01011100</div>
-            <div class="binary-col">01011010<br>10101101<br>11100010<br>00110137<br>10010101<br>01101011</div>
-        </div>
-        <div class="orb orb1"></div>
-        <div class="orb orb2"></div>
-        <div class="orb orb3"></div>
-    </div>
+    <!-- NAVBAR -->
+    <header class="nav">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <div class="nav-logo-circle">VV</div>
+                <div>
+                    <div class="nav-name">Vasanth V</div>
+                    <div class="nav-tag">IT Graduate · UI/UX & ML</div>
+                </div>
+            </div>
 
-    <!-- Particles -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+            <nav class="nav-links" id="nav-links">
+                <a href="#about" class="nav-link active">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">VASANTH V</div>
-            <ul class="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+            <a href="#contact" class="nav-cta">
+                Say hello <span>👋</span>
+            </a>
+
+            <div class="nav-menu-toggle" id="nav-toggle">☰</div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm Vasanth V</h1>
-            <p class="hero-subtitle">IT Professional | UI/UX Designer | Machine Learning Enthusiast</p>
-            <p class="hero-description">
-                Motivated and adaptable individual seeking opportunities in the IT industry to apply problem-solving skills,
-                learn new technologies, and contribute to organizational growth.
-            </p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="#" class="btn btn-secondary">Resume</a>
-            </div>
-        </div>
-    </section>
+    <main class="page">
+        <section class="glass-panel">
+            <!-- HERO -->
+            <section class="hero" id="about">
+                <div class="hero-left reveal">
+                    <h1 class="hero-heading">
+                        Hi, I’m <span class="hero-name-highlight">Vasanth V</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Motivated and adaptable IT graduate with hands-on experience in UI/UX and machine learning.
+                        Passionate about solving real-world problems, learning modern technologies and contributing to
+                        impactful products.
+                    </p>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="card about-card">
-            <div class="card-icon">🎓</div>
-            <h3 class="card-title">Education</h3>
-            <p class="card-text">
-                <strong>B.Tech. Information Technology</strong><br>
-                Anjalai Ammal Mahalingam Engineering College, Thiruvarur<br>
-                CGPA: 7.5/10 | Graduation: May 2025
-            </p>
-            <p class="card-text" style="margin-top: 1.5rem;">
-                I am passionate about leveraging technology to solve real-world problems. My journey in IT has equipped me
-                with a strong foundation in software development, UI/UX design, and machine learning, preparing me to make
-                meaningful contributions to innovative projects.
-            </p>
-        </div>
-    </section>
+                    <div class="hero-tags">
+                        <div class="chip">
+                            <span class="chip-dot"></span>
+                            Aspiring Software Engineer
+                        </div>
+                        <div class="chip chip-soft">
+                            UI/UX Intern · Astonish Infotech
+                        </div>
+                        <div class="chip chip-soft">
+                            ML Intern · SmartiApps Technologies
+                        </div>
+                    </div>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-icon">🎨</div>
-                <h3 class="card-title">UI/UX Intern</h3>
-                <p class="card-subtitle">Astonish Infotech (P) Ltd</p>
-                <p class="card-date">June 14 - August 10, 2025</p>
-                <p class="card-text">
-                    Completed a UI/UX internship focused on designing user-friendly interfaces and improving user experience.
-                    Gained hands-on experience with Figma, creating wireframes, prototypes, and design systems for
-                    multiple client projects.
-                </p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🤖</div>
-                <h3 class="card-title">Machine Learning Intern</h3>
-                <p class="card-subtitle">SmartiApps Technologies</p>
-                <p class="card-date">February - May, 2025</p>
-                <p class="card-text">
-                    Contributed as an intern to a machine learning-based lung cancer prediction system, gaining hands-on
-                    experience in data preprocessing, model training, and real-time diagnosis enhancement using deep learning
-                    techniques.
-                </p>
-            </div>
-        </div>
-    </section>
+                    <div class="hero-actions">
+                        <!-- Put your resume file in same folder and update the href -->
+                        <a href="Vasanth_V_Resume.pdf" class="btn btn-primary" download>
+                            <span class="icon">⬇</span> Download Resume
+                        </a>
+                        <a href="#projects" class="btn btn-ghost">
+                            <span class="icon">💻</span> View Projects
+                        </a>
+                    </div>
+                </div>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">Academic Projects</h2>
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-icon">🔬</div>
-                <h3 class="card-title">Lung Cancer Detection Using ResNeXt</h3>
-                <p class="card-text">
-                    Developed a deep learning model using the ResNeXt architecture to detect lung cancer from CT scan images.
-                    Enhanced image quality with CLAHE preprocessing and improved model performance using CutMix data augmentation
-                    techniques for accurate and early diagnosis.
-                </p>
-                <p class="card-text">
-                    <strong>Technologies:</strong> Python, TensorFlow, ResNeXt, CLAHE, CutMix
-                </p>
-            </div>
-            <div class="card">
-                <div class="card-icon">💼</div>
-                <h3 class="card-title">Conference Management System</h3>
-                <p class="card-text">
-                    Developed a comprehensive Java-based Conference Management System to handle employee records and monitor
-                    performance metrics. Implemented features for efficient data storage, employee information retrieval,
-                    and automated reporting capabilities.
-                </p>
-                <p class="card-text">
-                    <strong>Technologies:</strong> Java, SQL, JDBC, Swing
-                </p>
-            </div>
-        </div>
-    </section>
+                <!-- HERO CARD -->
+                <aside class="hero-card reveal">
+                    <header class="hero-card-header">
+                        <div style="display:flex;align-items:center;">
+                            <div class="hero-avatar">VV</div>
+                            <div class="hero-meta">
+                                <div class="hero-meta-name">Vasanth V</div>
+                                <div class="hero-meta-role">
+                                    B.Tech Information Technology · 2025
+                                </div>
+                                <div class="hero-meta-location">
+                                    Tamil Nadu, India
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-status-pill">
+                            <span class="hero-status-dot"></span>
+                            Open to IT & Developer roles
+                        </div>
+                    </header>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-badge">HTML</div>
-            <div class="skill-badge">CSS</div>
-            <div class="skill-badge">JavaScript</div>
-            <div class="skill-badge">Java</div>
-            <div class="skill-badge">SQL</div>
-        </div>
+                    <div class="hero-card-row">
+                        <div>
+                            <div class="hero-card-label">Email</div>
+                            <a href="mailto:vasanthmv230@gmail.com" class="hero-link">
+                                ✉️ vasanthmv230@gmail.com
+                            </a>
+                        </div>
+                        <div>
+                            <div class="hero-card-label">Phone</div>
+                            <a href="tel:+919943160748" class="hero-link">
+                                📞 +91 99431 60748
+                            </a>
+                        </div>
+                    </div>
 
-        <h2 class="section-title" style="margin-top: 5rem;">Soft Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-badge">Communication</div>
-            <div class="skill-badge">Team Collaboration</div>
-            <div class="skill-badge">Time Management</div>
-            <div class="skill-badge">Problem Solving</div>
-            <div class="skill-badge">Adaptability</div>
-            <div class="skill-badge">Critical Thinking</div>
-        </div>
-    </section>
+                    <div class="hero-card-row">
+                        <div>
+                            <div class="hero-card-label">LinkedIn</div>
+                            <a href="https://www.linkedin.com/in/vasanth-v-230vd" target="_blank" class="hero-link">
+                                🔗 linkedin.com/in/vasanth-v-230vd
+                            </a>
+                        </div>
+                        <div>
+                            <div class="hero-card-label">Focus Areas</div>
+                            <div style="font-size:0.78rem;color:#e5e7eb;">
+                                Web Development · UI/UX · ML
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon">📧</div>
-                <p class="contact-label">Email</p>
-                <p class="contact-value">
-                    <a href="mailto:vasanthmv230@gmail.com">vasanthmv230@gmail.com</a>
-                </p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">📱</div>
-                <p class="contact-label">Phone</p>
-                <p class="contact-value">
-                    <a href="tel:+919943160748">+91 99431 60748</a>
-                </p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">💼</div>
-                <p class="contact-label">LinkedIn</p>
-                <p class="contact-value">
-                    <a href="https://linkedin.com/in/vasanth-v-230vd" target="_blank" rel="noopener noreferrer">
-                        vasanth-v-230vd
-                    </a>
-                </p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">📍</div>
-                <p class="contact-label">Location</p>
-                <p class="contact-value">Tamil Nadu, India</p>
-            </div>
-        </div>
-    </section>
+                    <div class="hero-card-divider"></div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Vasanth V. All rights reserved. Built with passion and code.</p>
-    </footer>
+                    <footer class="hero-card-footer">
+                        <div class="hero-card-tags">
+                            <span class="badge">HTML · CSS · JavaScript</span>
+                            <span class="badge">Java · SQL</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:0.7rem;color:var(--text-muted);">
+                                Student Member · YRC
+                            </div>
+                        </div>
+                    </footer>
+                </aside>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section class="section" id="experience">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                    <p class="section-subtitle">Internships & professional exposure</p>
+                </div>
+
+                <div class="section-grid">
+                    <!-- UI/UX Intern -->
+                    <article class="card reveal">
+                        <div class="card-header-line">
+                            <h3 class="card-title">UI/UX Intern</h3>
+                            <span class="card-pill">Jun – Aug 2025</span>
+                        </div>
+                        <div class="card-meta">
+                            Astonish Infotech (P) Ltd · <span>Tamil Nadu, India</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">Figma</span>
+                            <span class="card-tag">Wireframing</span>
+                            <span class="card-tag">User Experience</span>
+                            <span class="card-tag">Interface Design</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Designed user-friendly interfaces focused on clarity, accessibility and smooth user flows.</li>
+                                <li>Created wireframes and interactive prototypes in Figma to validate ideas quickly.</li>
+                                <li>Collaborated with team members to improve user journeys and align UI with business goals.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Machine Learning Intern -->
+                    <article class="card reveal">
+                        <div class="card-header-line">
+                            <h3 class="card-title">Machine Learning Intern</h3>
+                            <span class="card-pill">Feb – May 2025</span>
+                        </div>
+                        <div class="card-meta">
+                            SmartiApps Technologies · <span>Tamil Nadu, India</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">Machine Learning</span>
+                            <span class="card-tag">Python</span>
+                            <span class="card-tag">Data Preprocessing</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Contributed to a lung cancer prediction system using ML models on CT scan data.</li>
+                                <li>Worked on data preprocessing, model training and improving diagnosis accuracy.</li>
+                                <li>Helped refine real-time prediction flows for better usability and performance.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- PROJECTS -->
+            <section class="section" id="projects">
+                <div class="section-header">
+                    <h2 class="section-title">Projects</h2>
+                    <p class="section-subtitle">Academic and technical work</p>
+                </div>
+
+                <div class="section-grid">
+                    <!-- Lung Cancer Detection -->
+                    <article class="card reveal">
+                        <div class="card-header-line">
+                            <h3 class="card-title">Lung Cancer Detection Using ResNeXt</h3>
+                            <span class="card-pill">Deep Learning</span>
+                        </div>
+                        <div class="card-meta">
+                            Final-year academic project · Medical Imaging
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">ResNeXt</span>
+                            <span class="card-tag">CLAHE</span>
+                            <span class="card-tag">CutMix</span>
+                            <span class="card-tag">CT Scan Images</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Developed a deep learning model using ResNeXt to detect lung cancer from CT scan images.</li>
+                                <li>Used CLAHE to enhance image quality and improve feature visibility.</li>
+                                <li>Applied CutMix data augmentation to boost model performance and robustness.</li>
+                                <li>Focused on accurate and early diagnosis to support real-world medical decision-making.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Conference Management System -->
+                    <article class="card reveal">
+                        <div class="card-header-line">
+                            <h3 class="card-title">Conference Management System</h3>
+                            <span class="card-pill">Java · SQL</span>
+                        </div>
+                        <div class="card-meta">
+                            Academic project · Desktop application
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">Java</span>
+                            <span class="card-tag">SQL Database</span>
+                            <span class="card-tag">CRUD Operations</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Built a Java-based system to manage employee records and monitor performance.</li>
+                                <li>Implemented secure data storage and retrieval for employee information.</li>
+                                <li>Added reporting features to support administrative decisions.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="section" id="skills">
+                <div class="section-header">
+                    <h2 class="section-title">Skills</h2>
+                    <p class="section-subtitle">Technical stack & soft skills</p>
+                </div>
+
+                <div class="skills-layout">
+                    <article class="card reveal">
+                        <div class="skill-group-title">Technical Skills</div>
+                        <div class="skill-badges">
+                            <span class="skill-badge">HTML</span>
+                            <span class="skill-badge">CSS</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">SQL</span>
+                            <span class="skill-badge">Figma (UI/UX)</span>
+                            <span class="skill-badge">Machine Learning Basics</span>
+                        </div>
+                    </article>
+
+                    <article class="card reveal">
+                        <div class="skill-group-title">Soft Skills & Involvement</div>
+                        <div class="skill-badges">
+                            <span class="skill-badge soft">Communication</span>
+                            <span class="skill-badge soft">Team Collaboration</span>
+                            <span class="skill-badge soft">Time Management</span>
+                            <span class="skill-badge soft">Problem Solving</span>
+                            <span class="skill-badge soft">Student Member · YRC</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section class="section" id="education">
+                <div class="section-header">
+                    <h2 class="section-title">Education</h2>
+                    <p class="section-subtitle">Academic background</p>
+                </div>
+
+                <article class="card reveal">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">
+                                B.Tech. Information Technology
+                            </div>
+                            <div class="timeline-meta">
+                                Anjalai Ammal Mahalingam Engineering College, Thiruvarur<br />
+                                CGPA: 7.5 / 10 · Year of completion: May 2025
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-title">
+                                HSC (State Board)
+                            </div>
+                            <div class="timeline-meta">
+                                Karthi Vidhyalaya Matriculation Hr Sec School, Kumbakonam<br />
+                                Percentage: 78% · Year of completion: May 2021
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-title">
+                                SSLC (State Board)
+                            </div>
+                            <div class="timeline-meta">
+                                Karthi Vidhyalaya Matriculation Hr Sec School, Kumbakonam<br />
+                                Percentage: 70% · Year of completion: March 2019
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- CONTACT -->
+            <section class="section" id="contact">
+                <div class="section-header">
+                    <h2 class="section-title">Contact</h2>
+                    <p class="section-subtitle">Let’s connect or collaborate</p>
+                </div>
+
+                <div class="contact-box reveal">
+                    <div class="contact-row">
+                        <div>
+                            <div class="contact-label">Reach out</div>
+                            <a href="mailto:vasanthmv230@gmail.com" class="contact-link">
+                                ✉️ vasanthmv230@gmail.com
+                            </a>
+                        </div>
+                        <div>
+                            <div class="contact-label">Call / WhatsApp</div>
+                            <a href="tel:+919943160748" class="contact-link">
+                                📞 +91 99431 60748
+                            </a>
+                        </div>
+                        <div>
+                            <div class="contact-label">LinkedIn</div>
+                            <a href="https://www.linkedin.com/in/vasanth-v-230vd" target="_blank" class="contact-link">
+                                🔗 linkedin.com/in/vasanth-v-230vd
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-note">
+                        I’m open to roles in software development, web development, UI/UX, and entry-level IT positions.
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
 
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        // Mobile nav toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const linkItems = navLinks.querySelectorAll('.nav-link');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetSelector = this.getAttribute('href');
-                if (!targetSelector || targetSelector === '#') return;
-                const target = document.querySelector(targetSelector);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        linkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
             });
         });
+
+        // Scroll spy for nav
+        const sections = document.querySelectorAll('section[id]');
+        const observerOptions = { threshold: 0.35 };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.id;
+                const link = document.querySelector('.nav-link[href="#' + id + '"]');
+                if (!link) return;
+
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // Reveal animations for cards/sections
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
